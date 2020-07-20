@@ -23,27 +23,17 @@ data = {
 }
 
 province_code = {
-    "黑龙江": 609910
+    "黑龙江": 609910,
+    "北京": 609001
 }
 
 cite_code = {
-    "双鸭山": 8230500
+    "双鸭山": 8230500,
+    "北京": 8110100
 }
 
 task_code = [
-    "00",
-    "11",
-    "06",
-    "41",
-    "42",
-    "46",
-    "49",
-    "64",
-    "74",
-    "53",
-    "55",
-    "58",
-    "68"
+    00,11,13,53,93,41,42,46,49,64,74,55,58,87,28,68,98,
 ]
 
 
@@ -54,13 +44,15 @@ async def get_dianxin(params, data, province, city):
             with open("./result/电信result.txt", 'a+') as file_object:
                 data['provincecode'] = province_code[province]
                 data['areacode'] = cite_code[city]
-                data['contnumber'] = search_value
+                # data['areacode'] = None
+                data['contnumber'] = str(search_value)
                 async with session.post('http://www.189.cn/dqmh/seniorPhone/search.do',
                                         params=params, data=data) as resp:
                     r = await resp.json()
+                    # print(r)
                     # maxidx = r[0]['maxPage'] if r[0]['maxPage'] < 5 else 5
                     num_list = [str(x['phoneNumber']) for x in r[0]['listphones'] if
-                                x['phoneNumber'][-2:] == search_value]
+                                x['phoneNumber'][-2:] == str(search_value)]
                     if not num_list:
                         logger.info("no search_number:{0}".format(search_value))
                         continue
@@ -92,5 +84,5 @@ async def get_dianxin(params, data, province, city):
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
-    result = loop.run_until_complete(get_dianxin(params, data, "黑龙江", "双鸭山"))
+    result = loop.run_until_complete(get_dianxin(params, data, "北京", "北京"))
     loop.close()

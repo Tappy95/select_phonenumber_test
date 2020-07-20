@@ -77,6 +77,7 @@ async def get_liantong(params, province, city):
         with open("./result/联通result.txt", 'a+') as file_object:
             for search_value in task_code:
                 for groupKey in card_dict.keys():
+                    file_object.write('\n\n{}\n\n'.format(card_dict[groupKey]))
                     params['groupKey'] = groupKey
                     params['provinceCode'] = province_code[province]
                     params['cityCode'] = cite_code[city]
