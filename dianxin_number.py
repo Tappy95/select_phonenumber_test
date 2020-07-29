@@ -33,7 +33,9 @@ cite_code = {
 }
 
 task_code = [
-    00,11,13,53,93,41,42,46,49,64,74,55,58,87,28,68,98,
+    # 00,11,13,53,93,41,42,46,49,64,
+    74,
+    # 55,58,87,28,68,98,
 ]
 
 
@@ -84,5 +86,5 @@ async def get_dianxin(params, data, province, city):
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
-    result = loop.run_until_complete(get_dianxin(params, data, "北京", "北京"))
+    result = loop.run_until_complete(get_dianxin(params, data, "黑龙江", "双鸭山"))
     loop.close()
