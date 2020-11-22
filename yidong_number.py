@@ -8,19 +8,20 @@ from log import logger
 import aiohttp
 
 params = {
-    "area_Id": 10099,
-    "groupId": 10035,
+    "area_Id": 758,
+    "groupId": 756,
     "qry_no": "1________06",
     "page_num": 1
 }
 
 are_code = {
-    "尖山区": 10099,
-    "集贤县": 10100,
-    "宝清县": 10101,
-    "饶河县": 10102,
-    "友谊县": 10103,
-    "宝山区": 198623
+    # "尖山区": 10099,
+    # "集贤县": 10100,
+    # "宝清县": 10101,
+    # "饶河县": 10102,
+    # "友谊县": 10103,
+    # "宝山区": 198623,
+    "xxx":10257
 }
 
 cite_code = {
@@ -28,10 +29,8 @@ cite_code = {
 }
 
 task_code = [
-    '28',
-    '68',
-    '87',
-    '58',
+    '13',
+    '49'
 ]
 
 
@@ -65,7 +64,13 @@ async def get_dianxin(params, city):
         print("爬取任务已完成")
 
 
+
+
+
+
+
+
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
-    result = loop.run_until_complete(get_dianxin(params, "双鸭山"))
+    result = loop.run_until_complete(get_dianxin(params, "珠海"))
     loop.close()
