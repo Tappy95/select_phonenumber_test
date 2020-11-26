@@ -35,10 +35,7 @@ company_code = {
 
 task_code = [
     # "53",
-    "28",
-    "68",
-    "87",
-    "58",
+    "53"
 ]
 
 urls = {
@@ -73,7 +70,7 @@ async def get_dianxin(params, city, company):
                             str_list = "，\n".join(num_list)
                             a_line = "，\n{0}".format(str_list)
                             file_object.write(a_line)
-                            logger.info("done search_number:{0}".format(search_value))
+                            logger.info("done search_number:{}".format(search_value))
                         except Exception as e:
                             logger.info(e)
                             logger.info(r)
@@ -84,5 +81,5 @@ async def get_dianxin(params, city, company):
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
-    result = loop.run_until_complete(get_dianxin(params, "昆明", "移动"))
+    result = loop.run_until_complete(get_dianxin(params, "珠海", "电信"))
     loop.close()
