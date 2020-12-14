@@ -15,13 +15,13 @@ params = {
 }
 
 are_code = {
-    # "尖山区": 10099,
-    # "集贤县": 10100,
-    # "宝清县": 10101,
-    # "饶河县": 10102,
-    # "友谊县": 10103,
-    # "宝山区": 198623,
-    "xxx":10257
+    "尖山区": 10099,
+    "集贤县": 10100,
+    "宝清县": 10101,
+    "饶河县": 10102,
+    "友谊县": 10103,
+    "宝山区": 198623,
+    # "xxx":10257
 }
 
 cite_code = {
@@ -29,8 +29,22 @@ cite_code = {
 }
 
 task_code = [
-    '13',
-    '49'
+    "00",
+    "11",
+    "28",
+    # "13",
+    "53",
+    # "93",
+    "41",
+    "42",
+    "46",
+    "49",
+    "64",
+    "74",
+    # "87",
+    "58",
+    "68",
+    "06"
 ]
 
 
@@ -72,5 +86,5 @@ async def get_dianxin(params, city):
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
-    result = loop.run_until_complete(get_dianxin(params, "珠海"))
+    result = loop.run_until_complete(get_dianxin(params, "双鸭山"))
     loop.close()

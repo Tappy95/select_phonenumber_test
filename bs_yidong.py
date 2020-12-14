@@ -2,9 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 
 area_code = {
-    "珠海": "200_756"
+    "珠海": "200_756",
+    "双鸭山": "451_469"
 }
-url = 'https://shop.10086.cn/list/134_{}_1_0_0_0_0_0.html'.format(area_code['珠海'])
+url = 'https://shop.10086.cn/list/134_{}_1_0_0_0_0_0.html'.format(area_code['双鸭山'])
 number_list = []
 for p in range(1, 50):
     number_list = []
